@@ -21,7 +21,11 @@
         src: "/usr/local/apache-tomcat-9.0.48.tar.gz"
         dest: /usr/local
         remote_src: yes
-    - name: Renaming the extracted folder
-      command: mv /usr/local/apache-tomcat-9.0.48 /usr/local/tomcat
+    # - name: Renaming the extracted folder
+    #   command: mv /usr/local/apache-tomcat-9.0.48 /usr/local/tomcat
+    - name: Including xml file
+      template: src=tomcat-users.xml dest=/usr/local/tomcat/conf/
+      notify: restart tomcat
     - name: Running/Starting tomcat 
-      shell: nohup /usr/local/tomcat/bin/startup.sh & #nohup is used for running tomcat in backhround always so that it doesnt get stopped
+      shell: nohup /usr/local/tomcat/bin/startup.sh & #nohup is used for running tomcat in backhround always so that it doesnt get stopped        
+    

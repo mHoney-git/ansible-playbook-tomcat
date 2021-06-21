@@ -1,4 +1,4 @@
-<!-- <?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 
 <tomcat-users>
 
@@ -7,4 +7,4 @@
   <user username="modihoney" password="modihoney55!" roles="manager-gui" />
   <user username="abc" password="abc123" roles="admin-gui"/>
 
-</tomcat-users> -->
+</tomcat-users>
