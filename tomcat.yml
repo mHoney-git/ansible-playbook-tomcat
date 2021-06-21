@@ -1,30 +1,30 @@
 ---
 - name: Install and configure tomcat
-    hosts: webservers
-    gather_facts: false
-    become: yes
-    tasks: 
-      - name: Updating all the necessary repositories
-        yum: 
-          name: "*"
-          state: latest
-      - name: Installing rquired java
-        yum:
-          name: java-1.8.0-openjdk
-          state: present
-      - name: Downloading required tomcat
-        get_url:  
-          url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.46/bin/apache-tomcat-9.0.46.tar.gz
-          dest: /usr/local
-      - name: Extracting downloaded tomcat
-        unarchive:
-          src: "/usr/local/apache-tomcat-9.0.46.tar.gz"
-          dest: /usr/local
-          remote_src: yes
+  hosts: webservers
+  gather_facts: false
+  become: yes
+  tasks: 
+    - name: Updating all the necessary repositories
+      yum: 
+        name: "*"
+        state: latest
+    - name: Installing rquired java
+      yum:
+        name: java-1.8.0-openjdk
+        state: present
+    - name: Downloading required tomcat
+      get_url:  
+        url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.46/bin/apache-tomcat-9.0.46.tar.gz
+        dest: /usr/local
+    - name: Extracting downloaded tomcat
+      unarchive:
+        src: "/usr/local/apache-tomcat-9.0.46.tar.gz"
+        dest: /usr/local
+        remote_src: yes
       # - name: Renaming the extracted folder
       #   command: mv /usr/local/apache-tomcat-9.0.46 /usr/local/tomcat
-      - name: Running/Starting tomcat 
-        shell: nohup /usr/local/tomcat/bin/startup.sh & #nohup is used for running tomcat in backhround always so that it doesnt get stopped
+    - name: Running/Starting tomcat 
+      shell: nohup /usr/local/tomcat/bin/startup.sh & #nohup is used for running tomcat in backhround always so that it doesnt get stopped
 
 # ---
 # - name: Install and configure tomcat
