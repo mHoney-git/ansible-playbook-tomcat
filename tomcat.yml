@@ -33,6 +33,7 @@
 
     - name: Including tomcat.service file
       template: src=tomcat.service dest=/usr/local/etc/systemd/system/
+     
       # notify: restart tomcat
 
     - name: Running/Starting tomcat 
@@ -43,4 +44,5 @@
         name: tomcat
         state: restarted 
         enabled: yes
+        become: yes
        
