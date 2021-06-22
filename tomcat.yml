@@ -42,7 +42,7 @@
     - name: Enabling tomcat service automatically
       systemd: 
         name: tomcat
-        state: restarted 
         enabled: yes
-        become: yes
+        state: started 
+        become: true
        
