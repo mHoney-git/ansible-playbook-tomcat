@@ -41,8 +41,8 @@
 
     - name: Enabling tomcat service automatically
       systemd: 
-        name: tomcat.service
-        enabled: yes
-        state: restarted 
-        become: true
+      name: tomcat
+      enabled: yes
+      state: restarted 
+      become: true
        
