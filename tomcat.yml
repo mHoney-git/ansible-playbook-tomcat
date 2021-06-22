@@ -40,5 +40,5 @@
       shell: nohup /usr/local/tomcat/bin/startup.sh & #nohup is used for running tomcat in backhround always so that it doesnt get stopped        
 
     - name: Enabling tomcat service automatically
-      systemd: name=tomcat enabled=yes state=restarted become=yes
+      service: name=tomcat enabled=yes state=restarted
        
